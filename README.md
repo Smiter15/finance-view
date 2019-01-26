@@ -13,7 +13,7 @@ Accessibility can be improved:
 
 I would consider rebuilding the app in VueJS as the bundle size would be smaller.
 
-Hosted on Netlify [here](https://hardcore-beaver-e91fbd.netlify.com/).
+Hosted on Netlify [here](https://mystifying-archimedes-0d01b7.netlify.com/).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
