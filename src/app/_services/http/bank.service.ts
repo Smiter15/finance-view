@@ -9,9 +9,6 @@ import { environment } from '../../../environments/environment';
 // Services
 import { ErrorHandlerService } from '../helpers/error-handler.service';
 
-// Interface
-import { Account } from '../../_interfaces/Account.interfaces';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -23,8 +20,8 @@ export class BankService {
     constructor(private http: HttpClient,
                 private errorHandler: ErrorHandlerService) { }
 
-    getBankData(): Observable<Account[]> {
-        return this.http.get<Account[]>(this.apiDomain + this.bankUrl).pipe(
+    getBankData() {
+        return this.http.get<any>(this.apiDomain + this.bankUrl).pipe(
             catchError(this.errorHandler.handleError)
         );
     }

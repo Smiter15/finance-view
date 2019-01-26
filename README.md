@@ -1,5 +1,17 @@
 # Bud
 
+Angular was chosen as I find its quick to spin up a project bootstrapped with a testing environment and provide the necessary state management to update the view. Its service injection is also helpful when communicating with an API. Including bootstrap 4 allowed me create a crude full width responsive design.
+
+Given more time I would have improved:
+- Responsive design, specifically for mobile window size
+- Built the transaction date headers as expansion panels so the user could close the the view of the transactions for that date
+- Add more tests!
+- Improve lighthouse score to 100 across the board
+
+I would consider rebuilding the app in VueJS as the bundle size would be smaller.
+
+Hosted on Netlify [here](https://hardcore-beaver-e91fbd.netlify.com/).
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
 ## Development server

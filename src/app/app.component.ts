@@ -14,10 +14,10 @@ export interface Account {
     };
     id: string;
     provider: {
-        account_number: string;
+        account_number?: string;
         description: string;
         icon: string;
-        sort_code: string;
+        sort_code?: string;
         title: string;
     };
     transactions: {
@@ -42,14 +42,13 @@ export class AppComponent implements OnInit {
     public accounts: Account[] = [];
     public activeAccount: Account;
 
-    public transactions = {};
-    private transactionDates = [];
+    public transactions: any;
+    public transactionDates = [];
 
     constructor(private bankService: BankService) { }
 
     ngOnInit() {
         this.bankService.getBankData().subscribe(data => {
-            console.log(data.accounts);
             this.accounts = data.accounts;
             this.selectAccount(this.accounts[0]);
         }, error => {
@@ -60,7 +59,7 @@ export class AppComponent implements OnInit {
     public selectAccount(account: Account) {
         this.activeAccount = account;
         this.transactions = account.transactions;
-        this.transactionDates = Array.from(new Set(account.transactions.map(transaction => transaction.date)));
+        this.transactionDates = Array.from(new Set(this.transactions.map(transaction => transaction.date)));
         for (let i = 0; i < this.accounts.length; i++) {
             this.accounts[i].active = (account.id === this.accounts[i].id);
         }
