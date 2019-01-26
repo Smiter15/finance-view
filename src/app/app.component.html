@@ -4,7 +4,7 @@
             <div class="account-list">
                 <p class="title">Account</p>
                 <div *ngFor="let account of accounts" (click)="selectAccount(account)" class="account-item" [ngClass]="account.active ? 'active' : ''">
-                    <img [src]="'../assets/images/'+account.provider.icon" />
+                    <img [src]="'../assets/images/'+account.provider.icon" [alt]="account.provider.title" />
                     <p class="account-provider">{{account.provider.title}}</p>
                     <p class="account-description">{{account.provider.description}}</p>
                     <p class="account-value" [ngStyle]="{'color': account.balance.amount >= 0 ? '#5CC781' : '#DB1C13'}">{{account.balance.amount | currency : account.balance.currency_iso}}</p>

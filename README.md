@@ -8,6 +8,9 @@ Given more time I would have improved:
 - Add more tests!
 - Improve lighthouse score to 100 across the board
 
+Accessibility can be improved:
+- The item description font color on white and light orange background fails color contrast test. I suggest a darker grey #515560
+
 I would consider rebuilding the app in VueJS as the bundle size would be smaller.
 
 Hosted on Netlify [here](https://hardcore-beaver-e91fbd.netlify.com/).
