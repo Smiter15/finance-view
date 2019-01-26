@@ -8,7 +8,6 @@ import { throwError } from 'rxjs';
 export class ErrorHandlerService {
 
     handleError(error: HttpErrorResponse) {
-        console.error(error);
         return throwError(error);
     }
 }

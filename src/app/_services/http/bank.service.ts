@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/internal/operators';
 
 import { environment } from '../../../environments/environment';
@@ -9,6 +10,7 @@ import { environment } from '../../../environments/environment';
 import { ErrorHandlerService } from '../helpers/error-handler.service';
 
 // Interface
+import { Account } from '../../_interfaces/Account.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +23,8 @@ export class BankService {
     constructor(private http: HttpClient,
                 private errorHandler: ErrorHandlerService) { }
 
-    getBankData() {
-        return this.http.get(this.apiDomain + this.bankUrl).pipe(
+    getBankData(): Observable<Account[]> {
+        return this.http.get<Account[]>(this.apiDomain + this.bankUrl).pipe(
             catchError(this.errorHandler.handleError)
         );
     }

@@ -1,10 +1,17 @@
 <section class="container-fluid">
     <div class="row">
-        <aside class="col-md-3 col-sm-12" style="background: red">
-            Im aside
+        <aside class="col-md-4 col-sm-12">
+            <div class="account-list">
+                <p class="title">Account</p>
+                <div *ngFor="let account of accounts" class="account-item">
+                    <p>{{account.provider.title}}</p>
+                </div>
+            </div>
         </aside>
-        <main class="col-md-9 col-sm-12" style="background: blue">
-            Im main
+        <main class="col-md-8 col-sm-12">
+            <div style="background: blue">
+                Im main
+            </div>
         </main>
     </div>
 </section>
