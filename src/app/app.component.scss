@@ -4,11 +4,50 @@ section {
     padding-top: 25px;
     .account-list {
         background: $white;
-        padding: 15px;
         .title {
+            padding: 15px;
             font-size: 15px;
             font-weight: 600;
             color: $title-dark-color;
+        }
+        .account-item {
+            padding: 15px;
+            background: $white;
+            &:hover {
+                cursor: pointer;
+                background: darken($white, 5%)
+            }
+            img {
+                float: left;
+                margin-right: 10px;
+            }
+            &.active {
+                background: $item-bg-active;
+                border-top: 1px solid #EBEFF2;
+                border-bottom: 1px solid #EBEFF2;
+                &:hover {
+                    background: darken($item-bg-active, 5%)
+                }
+            }
+            .account-provider {
+                font-size: 13px;
+                font-weight: 600;
+                color: $item-title-color;
+                margin-bottom: 0;
+            }
+            .account-description {
+                font-size: 11px;
+                color: $item-desc-color;
+                margin-bottom: 5px;
+            }
+            .account-value {
+                font-size: 13px;
+                font-weight: 600;
+                float: right;
+                margin-bottom: 0;
+                position: relative;
+                top: -40px;
+            }
         }
     }
 }
