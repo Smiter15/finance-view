@@ -3,17 +3,30 @@
         <aside class="col-md-4 col-sm-12">
             <div class="account-list">
                 <p class="title">Account</p>
-                <div *ngFor="let account of accounts" (click)="selectAccount(account)" class="account-item">
+                <div *ngFor="let account of accounts" (click)="selectAccount(account)" class="account-item" [ngClass]="account.active ? 'active' : ''">
                     <img [src]="'../assets/'+account.provider.icon" />
                     <p class="account-provider">{{account.provider.title}}</p>
                     <p class="account-description">{{account.provider.description}}</p>
-                    <p class="account-value" [ngStyle]="{'color': account.balance.amount >= 0 ? '#5CC781' : '#DB1C13'}">{{account.balance.amount | currency : 'GBP'}}</p>
+                    <p class="account-value" [ngStyle]="{'color': account.balance.amount >= 0 ? '#5CC781' : '#DB1C13'}">{{account.balance.amount | currency : account.balance.currency_iso}}</p>
                 </div>
             </div>
         </aside>
         <main class="col-md-8 col-sm-12">
-            <div style="background: blue">
-                Im main
+            <div class="account-details">
+                <div class="header">
+                    <div class="float-left">
+                        <h2>{{activeAccount?.balance?.amount | currency : activeAccount?.balance?.currency_iso}}</h2>
+                        <p>Available Balance</p>
+                    </div>
+                    <div class="float-right text-right">
+                        <h3>{{activeAccount?.provider?.title}}</h3>
+                        <p>{{activeAccount?.provider?.description}}</p>
+                        <p *ngIf="activeAccount?.provider?.sort_code && activeAccount?.provider?.account_number">{{activeAccount?.provider?.sort_code}} / {{activeAccount?.provider?.account_number}}</p>
+                    </div>
+                </div>
+                <div class="">
+
+                </div>
             </div>
         </main>
     </div>

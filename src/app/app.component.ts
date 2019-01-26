@@ -6,11 +6,13 @@ import { BankService } from './_services/http/bank.service';
 // Interfaces
 export interface Account {
     accounts: any;
+    active: boolean;
     balance: {
         amount: number;
         currency_iso: string,
         id: string
     };
+    id: string;
     provider: {
         account_number: string;
         description: string;
@@ -38,6 +40,7 @@ export interface Account {
 export class AppComponent implements OnInit {
 
     public accounts: Account[] = [];
+    public activeAccount: Account;
 
     constructor(private bankService: BankService) { }
 
@@ -45,13 +48,17 @@ export class AppComponent implements OnInit {
         this.bankService.getBankData().subscribe(data => {
             console.log(data.accounts);
             this.accounts = data.accounts;
+            this.selectAccount(this.accounts[0]);
         }, error => {
             console.error('ERROR: Receiving bank data: ', error);
         });
     }
 
-    selectAccount(account) {
-        console.log(account);
+    public selectAccount(account) {
+        this.activeAccount = account;
+        for (let i = 0; i < this.accounts.length; i++) {
+            this.accounts[i].active = (account.id === this.accounts[i].id);
+        }
     }
 
 }
