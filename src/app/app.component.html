@@ -24,8 +24,23 @@
                         <p *ngIf="activeAccount?.provider?.sort_code && activeAccount?.provider?.account_number">{{activeAccount?.provider?.sort_code}} / {{activeAccount?.provider?.account_number}}</p>
                     </div>
                 </div>
-                <div class="">
-
+                <div class="transactions">
+                    <ng-container *ngFor="let date of transactionDates">
+                        <div class="transaction-date">
+                            <p>{{date | date: 'dd/MM/yyyy'}}</p>
+                        </div>
+                        <ng-container *ngFor="let transaction of transactions">
+                            <div *ngIf="transaction.date === date" class="transaction">
+                                <div class="float-left">
+                                    <p class="description">{{transaction.description}}</p>
+                                    <p class="category">{{transaction.category_title}}</p>
+                                </div>
+                                <div class="float-right">
+                                    <p class="amount">{{transaction.amount.value  | currency : transaction?.amount?.currency_iso}}</p>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </ng-container>
                 </div>
             </div>
         </main>

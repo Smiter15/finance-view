@@ -34,19 +34,19 @@ section {
                 }
             }
             .account-provider {
-                font-size: 13px;
-                font-weight: 600;
+                font-size: $item-title-font-size;
+                font-weight: $item-title-font-weight;
                 color: $item-title-color;
                 margin-bottom: 0;
             }
             .account-description {
-                font-size: 11px;
+                font-size: $item-desc-font-size;
                 color: $item-desc-color;
                 margin-bottom: 5px;
             }
             .account-value {
-                font-size: 13px;
-                font-weight: 600;
+                font-size: $item-title-font-size;
+                font-weight: $item-title-font-weight;
                 float: right;
                 margin-bottom: 0;
                 position: relative;
@@ -76,6 +76,46 @@ section {
             }
             h2, h3, p {
                 color: $white;
+            }
+        }
+        .transactions {
+            background: $white;
+            .transaction-date {
+                padding: 10px 15px;
+                background: #E5E5E5;
+                color: #797979;
+                font-size: 12px;
+                font-weight: bold;
+                p {
+                    margin: 0;
+                }
+            }
+            .transaction {
+                padding: 10px 15px;
+                min-height: 64px;
+                &:after {
+                    content: "";
+                    display: block;
+                    width: 102%;
+                    padding-top: 43px;
+                    border-bottom: 1px solid #F1F3F5;
+                }
+                .description {
+                    font-size: $item-title-font-size;
+                    font-weight: $item-title-font-weight;
+                    color: $item-title-color;
+                    margin: 0;
+                }
+                .category {
+                    font-size: $item-desc-font-size;
+                    color: $item-desc-color;
+                    margin: 0;
+                }
+                .amount {
+                    font-size: $item-title-font-size;
+                    font-weight: $item-title-font-weight;
+                    color: $item-title-color;
+                }
             }
         }
     }

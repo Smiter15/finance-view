@@ -42,6 +42,9 @@ export class AppComponent implements OnInit {
     public accounts: Account[] = [];
     public activeAccount: Account;
 
+    public transactions = {};
+    private transactionDates = [];
+
     constructor(private bankService: BankService) { }
 
     ngOnInit() {
@@ -54,8 +57,10 @@ export class AppComponent implements OnInit {
         });
     }
 
-    public selectAccount(account) {
+    public selectAccount(account: Account) {
         this.activeAccount = account;
+        this.transactions = account.transactions;
+        this.transactionDates = Array.from(new Set(account.transactions.map(transaction => transaction.date)));
         for (let i = 0; i < this.accounts.length; i++) {
             this.accounts[i].active = (account.id === this.accounts[i].id);
         }
